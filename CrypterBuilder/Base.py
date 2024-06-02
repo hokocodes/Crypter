@@ -376,7 +376,7 @@ RUNTIME_CONFIG_ITEMS = [
     ]
 
 PACKAGE_DIR = os.path.dirname(__file__)
-RUNTIME_CONFIG_PATH = os.path.join(PACKAGE_DIR, "Resources", "runtime.cfg")
+RUNTIME_CONFIG_PATH = os.path.join("../CrypterBuilder", "Resources", "runtime.cfg")
 
 # ERRORS
 ERROR_INVALID_DATA = 13

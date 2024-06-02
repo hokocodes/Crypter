@@ -284,9 +284,9 @@ class BuilderThread(Thread):
         # Build command
         cmd = [
             pyinstaller_path,
-            "--noconsole",
-            "--clean",
-            "-F"
+            '--noconsole',
+            '--clean',
+            '-F',
             ]
         if self.user_input_dict["upx_dir"]:
             cmd.append("--upx-dir")
