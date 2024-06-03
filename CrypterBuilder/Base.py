@@ -14,7 +14,7 @@ MAJ_VERSION = "3"
 MIN_VERSION = "5"
 
 # TITLE
-TITLE = "Crypter Builder v%s.%s" % (MAJ_VERSION, MIN_VERSION)
+TITLE = "Achilles v%s.%s" % (MAJ_VERSION, MIN_VERSION)
 CRYPTER_FILENAME = "Crypter"
 
 ## LANGUAGE
