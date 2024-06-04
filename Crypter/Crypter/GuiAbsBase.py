@@ -17,7 +17,7 @@ import wx.xrc
 class MainFrame ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Crypter", pos = wx.DefaultPosition, size = wx.Size( 940,800 ), style = wx.CAPTION|wx.CLOSE_BOX|wx.MINIMIZE_BOX|wx.RESIZE_BORDER|wx.SYSTEM_MENU|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Achilles", pos = wx.DefaultPosition, size = wx.Size( 940,800 ), style = wx.CAPTION|wx.CLOSE_BOX|wx.MINIMIZE_BOX|wx.RESIZE_BORDER|wx.SYSTEM_MENU|wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.Size( -1,-1 ), wx.Size( -1,-1 ) )
 		self.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT ) )
@@ -28,7 +28,7 @@ class MainFrame ( wx.Frame ):
 		self.HeaderPanel = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
 		HeaderSizer = wx.BoxSizer( wx.VERTICAL )
 
-		self.TitleLabel = wx.StaticText( self.HeaderPanel, wx.ID_ANY, u"CRYPTER", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.TitleLabel = wx.StaticText( self.HeaderPanel, wx.ID_ANY, u"ACHILLES", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.TitleLabel.Wrap( -1 )
 
 		self.TitleLabel.SetFont( wx.Font( 48, wx.FONTFAMILY_MODERN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, True, "Courier New" ) )
