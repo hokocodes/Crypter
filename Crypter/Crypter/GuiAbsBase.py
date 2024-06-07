@@ -44,7 +44,7 @@ class MainFrame ( wx.Frame ):
 
 		HeaderSizer.Add( self.FlashingMessageText, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 5 )
 
-		self.EmailText = wx.StaticText( self.HeaderPanel, wx.ID_ANY, u"email: payus5000@proton.me", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.EmailText = wx.StaticText( self.HeaderPanel, wx.ID_ANY, u"email: AchillesLock@proton.me", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.EmailText.Wrap( -1 )
 
 		self.EmailText.SetFont( wx.Font( 18, wx.FONTFAMILY_MODERN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "Courier New" ) )

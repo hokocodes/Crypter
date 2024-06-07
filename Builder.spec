@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['Builder.py'],
-             pathex=['C:\\Users\\hokov\\Documents\\GitHub\\Crypter'],
+             pathex=['C:\\Users\\hokop\\Documents\\GitHub\\Crypter'],
              binaries=[],
              datas=[],
              hiddenimports=[],
