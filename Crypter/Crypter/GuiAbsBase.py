@@ -228,7 +228,6 @@ class MainFrame ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
-		self.Show()
 
 	def __del__( self ):
 		pass
@@ -355,9 +354,3 @@ class EnterDecryptionKeyDialog ( wx.Dialog ):
 
 	def __del__( self ):
 		pass
-
-
-if __name__ == '__main__':
-    app = wx.App(False)  # Create an instance of the wx.App class
-    frame = MainFrame(None)  # Create an instance of the MainFrame class with parent as None
-    app.MainLoop()  # Start the application loop

@@ -18,6 +18,18 @@ from .GuiAbsBase import EnterDecryptionKeyDialog
 from .GuiAbsBase import MainFrame
 from .GuiAbsBase import ViewEncryptedFilesDialog
 
+def main():
+    # Create an instance of the wx.App class
+    app = wx.App(False)
+    
+    # Create an instance of your MainFrame class
+    frame = MainFrame(None)
+    
+    # Show the frame
+    frame.Show(True)
+    
+    # Start the application's event loop
+    app.MainLoop()
 
 ############################
 ## DECRYPTIONTHREAD CLASS ##
@@ -521,3 +533,6 @@ class Gui(MainFrame, ViewEncryptedFilesDialog, EnterDecryptionKeyDialog, Base.Ba
             self.__config["primary_font_colour"][2]
         )
         )
+
+if __name__ == '__main__':
+    main()
