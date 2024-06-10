@@ -4,3 +4,4 @@ Pypubsub==4.0.3
 pywin32==306
 setuptools==70.0.0
 wxPython==4.2.1
+pyinstaller==6.8.0

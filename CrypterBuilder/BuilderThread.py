@@ -284,15 +284,13 @@ class BuilderThread(Thread):
         # Build command
         cmd = [
             pyinstaller_path,
-            "--noconsole",
-            "--clean",
-            "-F"
+            "--clean"
             ]
         if self.user_input_dict["upx_dir"]:
             cmd.append("--upx-dir")
             cmd.append(self.user_input_dict["upx_dir"])
-        else:
-            cmd.append("--noupx")
+        # else:
+        #     cmd.append("--noupx")
         cmd.append(spec_path)
         
         self.__console_log(msg="Running command: %s" % " ".join(cmd),
