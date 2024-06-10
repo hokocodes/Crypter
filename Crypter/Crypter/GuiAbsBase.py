@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ###########################################################################
-## Python code generated with wxFormBuilder (version Oct 26 2018)
+## Python code generated with wxFormBuilder (version 4.2.1-1-g9b91cdd3)
 ## http://www.wxformbuilder.org/
 ##
 ## PLEASE DO *NOT* EDIT THIS FILE!
@@ -97,7 +97,7 @@ class MainFrame ( wx.Frame ):
 		bSizer20.Add( self.m_panel8, 0, wx.ALL|wx.EXPAND, 5 )
 
 
-		bSizer17.Add( bSizer20, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.EXPAND, 5 )
+		bSizer17.Add( bSizer20, 0, 0, 5 )
 
 		bSizer18 = wx.BoxSizer( wx.VERTICAL )
 
@@ -199,7 +199,7 @@ class MainFrame ( wx.Frame ):
 		bSizer19.Add( self.EnterDecryptionKeyButton, 1, wx.ALL|wx.EXPAND, 5 )
 
 
-		bSizer221.Add( bSizer19, 2, wx.ALIGN_RIGHT|wx.EXPAND, 5 )
+		bSizer221.Add( bSizer19, 2, wx.ALIGN_RIGHT, 5 )
 
 
 		self.m_panel10.SetSizer( bSizer221 )
@@ -224,6 +224,9 @@ class MainFrame ( wx.Frame ):
 
 	def __del__( self ):
 		pass
+
+
+
 
 
 ###########################################################################
@@ -306,7 +309,7 @@ class EnterDecryptionKeyDialog ( wx.Dialog ):
 		OkCancelSizer.AddButton( self.OkCancelSizerOK )
 		self.OkCancelSizerCancel = wx.Button( MainSizer.GetStaticBox(), wx.ID_CANCEL )
 		OkCancelSizer.AddButton( self.OkCancelSizerCancel )
-		OkCancelSizer.Realize();
+		OkCancelSizer.Realize()
 
 		MainSizer.Add( OkCancelSizer, 1, wx.EXPAND, 5 )
 

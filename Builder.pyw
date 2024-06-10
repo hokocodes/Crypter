@@ -22,13 +22,13 @@ def showErrorDialog(message):
     error_dialog.ShowModal()
     app.MainLoop()
 
-# Check Version
-if PY_MAJ_VERSION != 3 or (PY_MIN_VERSION != 6 and PY_MIN_VERSION != 7):
-    showErrorDialog(
-        "Python 3.6 or 3.7 is required to use this project. version %s.%s is"
-        " not supported" % (PY_MAJ_VERSION, PY_MIN_VERSION)
-    )
-    sys.exit()
+# # Check Version
+# if PY_MAJ_VERSION != 3 or (PY_MIN_VERSION != 6 and PY_MIN_VERSION != 7):
+#     showErrorDialog(
+#         "Python 3.6 or 3.7 is required to use this project. version %s.%s is"
+#         " not supported" % (PY_MAJ_VERSION, PY_MIN_VERSION)
+#     )
+#     sys.exit()
 
 # Open Builder
 builder = Builder()

@@ -13,7 +13,7 @@ import sys
 import traceback
 
 # Import Package Libs
-from Crypter import Crypter
+from Crypter.GuiAbsBase import MainFrame
 from Crypter.Mutex import *
 
 def showErrorDialog(message):
@@ -48,3 +48,11 @@ if __name__ == "__main__":
             showErrorDialog(msg)
             sys.exit()
 
+def main():
+    app = wx.App(False)
+    frame = MainFrame(None)  # Create an instance of the main frame
+    frame.Show()
+    app.MainLoop()
+
+if __name__ == '__main__':
+    main()  # Run the main function

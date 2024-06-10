@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ###########################################################################
-## Python code generated with wxFormBuilder (version Oct 26 2018)
+## Python code generated with wxFormBuilder (version 4.2.1-1-g9b91cdd3)
 ## http://www.wxformbuilder.org/
 ##
 ## PLEASE DO *NOT* EDIT THIS FILE!
@@ -698,7 +698,7 @@ class MainFrame ( wx.Frame ):
 		bSizer41221.Add( bSizer203213121, 2, wx.EXPAND, 5 )
 
 
-		sbSizer12.Add( bSizer41221, 1, wx.ALIGN_CENTER_VERTICAL|wx.EXPAND, 5 )
+		sbSizer12.Add( bSizer41221, 1, 0, 5 )
 
 		bSizer412211 = wx.BoxSizer( wx.HORIZONTAL )
 
